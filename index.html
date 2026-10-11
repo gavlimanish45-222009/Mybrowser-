@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#4285f4">
+  <title>My Browser</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">🌐</span><span>My Browser</span></div>
+    <div class="top-actions">
+      <button id="themeBtn" class="icon-btn" title="Dark mode" aria-label="Dark mode">🌙</button>
+      <button id="historyBtn" class="icon-btn" title="History" aria-label="History">🕘</button>
+      <button id="bookmarksBtn" class="icon-btn" title="Bookmarks" aria-label="Bookmarks">⭐</button>
+      <button id="downloadsBtn" class="icon-btn" title="Downloads" aria-label="Downloads">⬇️</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="browser-shell">
+      <div class="tab-strip">
+        <div id="tabs" class="tabs"></div>
+        <button id="newTabBtn" class="new-tab" title="New tab" aria-label="New tab">＋</button>
+      </div>
+
+      <div class="toolbar">
+        <button id="backBtn" class="tool-btn" title="Back" aria-label="Back">←</button>
+        <button id="forwardBtn" class="tool-btn" title="Forward" aria-label="Forward">→</button>
+        <button id="reloadBtn" class="tool-btn" title="Reload" aria-label="Reload">⟳</button>
+        <button id="homeBtn" class="tool-btn" title="Home" aria-label="Home">⌂</button>
+        <form id="addressForm" class="address-form">
+          <span class="lock">🔎</span>
+          <input id="addressInput" type="text" autocomplete="off" placeholder="Search Google or enter a website address">
+          <button type="button" id="bookmarkCurrentBtn" class="address-star" title="Bookmark this page">☆</button>
+          <button class="go-btn" type="submit">Go</button>
+        </form>
+      </div>
+
+      <section id="homePage" class="home-page">
+        <div class="home-logo"><span>🌐</span> My Browser</div>
+        <p class="subtitle">ઝડપી શોધ. સરળ બ્રાઉઝિંગ.</p>
+        <form id="homeSearchForm" class="home-search">
+          <span>🔍</span>
+          <input id="homeSearchInput" type="text" placeholder="Google પર શોધો અથવા URL લખો" autocomplete="off">
+          <button type="submit" aria-label="Search">➜</button>
+        </form>
+        <div class="quick-links">
+          <button class="quick-link" data-url="https://www.google.com/"><span>G</span><small>Google</small></button>
+          <button class="quick-link" data-url="https://www.youtube.com/"><span>▶</span><small>YouTube</small></button>
+          <button class="quick-link" data-url="https://www.wikipedia.org/"><span>W</span><small>Wikipedia</small></button>
+          <button class="quick-link" data-url="https://www.github.com/"><span>⌘</span><small>GitHub</small></button>
+        </div>
+        <div class="notice">
+          <strong>નોંધ:</strong> સુરક્ષા મર્યાદાને કારણે કેટલીક websites આ વિંડોમાં નહીં ખુલે. જરૂર પડે તો “Open externally” પસંદ કરો.
+        </div>
+      </section>
+
+      <section id="pageView" class="page-view hidden">
+        <div class="page-message">
+          <div class="message-icon">🌍</div>
+          <h2 id="pageTitle">Website</h2>
+          <p id="pageDescription">આ website આ browser viewમાં ખોલવાનો પ્રયાસ થઈ રહ્યો છે.</p>
+          <div class="page-actions">
+            <button id="openExternalBtn" class="primary-btn">Open externally ↗</button>
+            <button id="showHomeBtn" class="secondary-btn">Home પર પાછા જાઓ</button>
+          </div>
+          <p class="small-note">જો નીચે website દેખાતી ન હોય, તો તે website iframe embeddingને રોકતી હોઈ શકે છે. આ સામાન્ય સુરક્ષા મર્યાદા છે.</p>
+        </div>
+        <iframe id="siteFrame" title="Website preview" referrerpolicy="no-referrer" sandbox="allow-forms allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+      </section>
+    </section>
+  </main>
+
+  <div id="sidePanel" class="side-panel hidden" aria-live="polite">
+    <div class="panel-head"><h2 id="panelTitle">History</h2><button id="closePanelBtn" class="icon-btn" aria-label="Close">✕</button></div>
+    <div class="panel-tools"><input id="panelSearch" placeholder="Search..." type="search"><button id="clearPanelBtn" class="secondary-btn">Clear</button></div>
+    <div id="panelList" class="panel-list"></div>
+  </div>
+  <div id="toast" class="toast hidden"></div>
+  <script src="app.js"></script>
+</body>
+</html>
